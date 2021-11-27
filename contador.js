@@ -1,8 +1,13 @@
 let fecha = {};
 fecha['actual'] = new Date();
 fecha['vuelta'] = new Date("2021-12-16");
+fecha['enterado'] = new Date("2021-11-26");
 
-let fechasDOM = document.querySelectorAll('.tiempo');
+let progreso = 0;
+
+let fechasDOM;
+let progresoDOM;
+let imagenProgreso;
 let tiempo = {};
 
 tiempo['dias'] = '0';
@@ -13,11 +18,21 @@ tiempo['segundos'] = '0';
 window.addEventListener('load', iniciarContador);
 
 function iniciarContador(){
-  calcularRestante();
+  fechasDOM = document.querySelectorAll('.tiempo');
+  progresoDOM = document.querySelector('.progreso');
+  imagenProgreso = document.querySelector('.animacion img');
+
   requestAnimationFrame(actualizarRestante);
 }
 
-function calcularRestante() {
+function calcularProgreso(){
+  let total = Date.parse(fecha['vuelta']) - Date.parse(fecha['enterado']);
+  let restante = (Date.parse(fecha['actual']) - Date.parse(fecha['enterado']));
+
+  return Number((restante/total).toFixed(2));
+}
+
+function calcularTiempoRestante() {
   fecha['actual'] = new Date();
 
   diferencia = Math.abs(fecha["vuelta"]-fecha["actual"])/(1000*60*60*24);
@@ -33,6 +48,12 @@ function calcularRestante() {
 }
 
 function actualizarRestante(){
+  calcularTiempoRestante();
+  progreso = calcularProgreso();
+
+  progresoDOM.style.width = String(100*progreso) + "%";
+  imagenProgreso.style.left = String(100*progreso) + "%";
+
   for(nodoDivision of fechasDOM){
     let elemento = nodoDivision.querySelector('span:first-child');
     let division = elemento.parentElement.getAttribute('data-division');
@@ -43,6 +64,6 @@ function actualizarRestante(){
     elemento.innerText = tiempo[division][1];
 
   }
-  calcularRestante();
+
   requestAnimationFrame(actualizarRestante);
 }
