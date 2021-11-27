@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+:root{
+  font-size: calc(1.25rem + 1vmax);
+  font-family: Montserrat, sans-serif;
+  color: rgb(255, 255, 255);
+}
+body{
+  margin: 0;
+  padding: 0 10%;
+  background-image: linear-gradient(160deg, rgb(51, 51, 51) 0%, #000000 100%);
+  min-height: 100vh;
+}
+h1{
+  margin: 0.5em 0 0.75em;
+  font-size: 2em;
+  font-weight:900;
+  flex-basis: 100%;
+  text-align: center;
+}
+h2{
+  margin: 0;
+  font-size:0.8em;
+  color: rgb(255, 255, 255);
+  font-weight:900;
+}
+.vuelta{
+  display: flex;
+  flex-flow: row wrap;
+}
+.contador{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  text-align: center;
+  gap: 1em;
+}
+.contador .tiempo{
+  font-size: 4em;
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 0 0.5em;
+}
+
+.contador .tiempo div{
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.1em;
+}
+
+.contador .tiempo span {
+  background: rgb(255, 255, 255);
+  width: 1em;
+  border-radius: 0.025em;
+  font-weight:900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tiempo__grupo{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.tiempo.minimo{
+  font-size: 1em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 0.2em;
+}
+.tiempo.minimo h2, .tiempo__grupo p{
+  color: rgb(255, 255, 255);
+}
+.tiempo__grupo p{
+  margin: 0 0.25em;
+}
+.tiempo.minimo span{
+  background: none;
+  color: rgb(255, 255, 255);
+  width: min-content;
+}
