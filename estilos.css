@@ -71,6 +71,10 @@ h2{
   justify-content: center;
 }
 
+.contador .tiempo:not(.minimo) span{
+  box-shadow: 0.025em 0.025em 0.1em 0 rgba(255, 255, 255, 0.3);
+}
+
 .tiempo__grupo{
   display: flex;
   flex-flow: row wrap;
