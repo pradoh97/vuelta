@@ -7,13 +7,14 @@
 body{
   padding: 1em 1em 0;
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   background-image: linear-gradient(160deg, rgb(51, 51, 51) 0%, #000000 100%);
   display: grid;
   margin: 0 auto;
-  grid-template-columns: minmax(min-content, 1fr);
+  grid-template-columns: minmax(1fr, max-content);
   grid-auto-rows: min-content;
   justify-content: center;
+  align-content: center;
 }
 h1{
   margin: 0em;
@@ -34,7 +35,7 @@ h2{
   flex-flow: column;
   justify-content: space-around;
   align-items: center;
-  gap: 3em 1em;
+  gap: 2em 1em;
 }
 .contador, .animacion{
   flex-grow: 1;
@@ -105,9 +106,8 @@ h2{
   flex-flow: column;
   justify-content: center;
   gap: 0.5em;
-  width: 90%;
-  position: fixed;
-  bottom: 1em;
+  margin-bottom: 1.5em;
+  width: 100%;
 }
 .animacion i{
   font-size: 0.5em;
@@ -118,7 +118,6 @@ h2{
 .animacion .fondo{
   position: relative;
   height: 0.6em;
-  width: 100%;
   background-color: white;
   flex-grow: 1;
 }
