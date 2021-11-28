@@ -8,7 +8,9 @@ let progreso = 0;
 let fechasDOM;
 let progresoDOM;
 let imagenProgreso;
+let barraProgreso;
 let tiempo = {};
+let idAnimacion;
 
 tiempo['dias'] = '0';
 tiempo['horas'] = '0';
@@ -21,8 +23,9 @@ function iniciarContador(){
   fechasDOM = document.querySelectorAll('.tiempo');
   progresoDOM = document.querySelector('.progreso');
   imagenProgreso = document.querySelector('.animacion img');
+  barraProgreso = document.querySelector('progress');
 
-  requestAnimationFrame(actualizarRestante);
+  idAnimacion = requestAnimationFrame(actualizarRestante);
 }
 
 function calcularProgreso(){
@@ -51,8 +54,10 @@ function actualizarRestante(){
   calcularTiempoRestante();
   progreso = calcularProgreso();
 
+
   progresoDOM.style.width = String(100*progreso) + "%";
   imagenProgreso.style.left = String(100*progreso) + "%";
+  barraProgreso.value = progreso*100;
 
   for(nodoDivision of fechasDOM){
     let elemento = nodoDivision.querySelector('span:first-child');
@@ -62,8 +67,12 @@ function actualizarRestante(){
     elemento = nodoDivision.querySelector('span:last-of-type');
     division = elemento.parentElement.getAttribute('data-division');
     elemento.innerText = tiempo[division][1];
-
   }
 
-  requestAnimationFrame(actualizarRestante);
+  if(progreso >= 1){
+    window.cancelAnimationFrame(idAnimacion);
+    return;
+  }
+
+  idAnimacion = requestAnimationFrame(actualizarRestante);
 }

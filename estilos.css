@@ -133,7 +133,7 @@ h2{
   width: 100%;
   max-width: 1.5em;
   border-radius: 100%;
-  transform: translate(-60%, -1em);
+  transform: translate(-60%, -1.025em);
 }
 .iconos{
   display: flex;
