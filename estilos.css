@@ -7,6 +7,7 @@ body{
   --color-base: rgb(0, 0, 0);
   --color-enfasis: rgb(82, 148, 226);
   --color-degradado-oscuro: rgb(50,50,50);
+  --color-bombilla: rgb(255, 200, 100);
   background-image: linear-gradient(160deg, var(--color-degradado-oscuro) 0%, var(--color-base) 100%);
 }
 body.claro{
@@ -15,11 +16,12 @@ body.claro{
   --sombra-contraste: rgba(0, 0, 0, 0.3);
   --color-base: rgb(255, 255, 255);
   --color-degradado-oscuro: rgb(200,200,200);
+  --color-bombilla: var(--color-base);
   background-image: linear-gradient(160deg, var(--color-base) 0%, var(--color-degradado-oscuro) 100%);
 }
 
 :root{
-  font-size: calc(1.25rem + 1vmax);
+  font-size: calc(1rem + 0.8vmax);
   font-family: Montserrat, sans-serif;
 }
 :root, h1, h2, .tiempo.minimo h2, .tiempo__grupo p, .tiempo.minimo span{
@@ -36,8 +38,8 @@ body{
   min-height: 100vh;
   display: grid;
   margin: 0 auto;
-  grid-template-columns: minmax(1fr, max-content);
   grid-auto-rows: min-content;
+  grid-template-rows: repeat(2, min-content) 1fr;
   justify-content: center;
   align-content: center;
 }
@@ -53,6 +55,7 @@ h1{
   padding: 0.25em 0 0.75em;
   font-size: 2em;
   text-align: center;
+  margin: 0;
 }
 h2{
   margin: 0;
@@ -66,9 +69,9 @@ h2{
   gap: 2em 1em;
 }
 .contador, .animacion{
-  flex-grow: 1;
 }
 .contador{
+  flex-grow: 1;
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
@@ -133,7 +136,7 @@ h2{
   width: 100%;
 }
 .animacion i{
-  font-size: 0.5em;
+  font-size: 0.75em;
   color: var(--color-contraste);
 }
 .animacion .barra--progreso{
@@ -167,24 +170,37 @@ h2{
 }
 
 .alternadores{
-  position: fixed;
-  top: 1em;
-  right: 1em;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.alternadores .eslabon{
+  width: 0.2em;
+  border-radius: 50%;
+  height: 0.3em;
+  border: 0.15em solid var(--color-contraste);
 }
 .alternadores button{
   font-size: 0.65em;
   padding: 0.5em 0.6em;
   background-color: var(--color-contraste);
-  color: var(--color-base);
+  color: var(--color-bombilla);
   border: 0;
   border-radius: 50%;
+  box-shadow: 0 0 0.5em 0.25em var(--sombra-contraste);
 }
 .alternadores button i{
-  width: 0.5em;
-  height: 0.5em;
+  font-size: 1.75em;
+  width: 1em;
+  height: 1em;
 }
 
 @media (min-width: 90em){
+  :root{
+    font-size: calc(1.25rem + 1vmax);
+  }
   body{
     padding: 0 2em;
     display: block;
@@ -198,6 +214,7 @@ h2{
   .animacion{
     width: auto;
     position: static;
+    flex-grow: 1;
   }
   .alternadores{
     bottom: 1em;
