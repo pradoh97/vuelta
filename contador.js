@@ -1,6 +1,6 @@
 let fecha = {};
 fecha['actual'] = new Date();
-fecha['vuelta'] = new Date("2021-12-17");
+fecha['vuelta'] = new Date("2021-12-15");
 fecha['enterado'] = new Date("2021-11-26");
 
 let progreso = 0;
