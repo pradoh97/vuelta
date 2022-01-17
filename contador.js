@@ -1,7 +1,6 @@
 let fecha = {};
 fecha['actual'] = new Date();
 fecha['vuelta'] = new Date("2021-12-15");
-//fecha['vuelta'] = new Date("2022-02-15");
 fecha['enterado'] = new Date("2021-11-26");
 
 let fechasDOM;
@@ -69,7 +68,10 @@ function actualizarRestante(){
   imagenProgreso.style.left = String(100*progreso) + "%";
   barraProgreso.value = progreso*100;
 
-  if(llegue) return;
+  if(llegue){
+    document.querySelector('h1').innerText = "Hernán ya llegó de la Antartida :)";
+    return;
+  }
 
   for(nodoDivision of fechasDOM){
     let elemento = nodoDivision.querySelector('span:first-child');
