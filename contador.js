@@ -69,7 +69,7 @@ function actualizarRestante(){
   barraProgreso.value = progreso*100;
 
   if(llegue){
-    document.querySelector('h1').innerText = "Hern·n ya llegÛ de la Antartida :)";
+    document.querySelector('h1').innerText = "Hern√°n ya lleg√≥ de la Ant√°rtida :)";
     return;
   }
 
